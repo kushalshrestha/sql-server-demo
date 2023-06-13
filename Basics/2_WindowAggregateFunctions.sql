@@ -34,14 +34,14 @@ on c.SalesOrderID = sod.SalesOrderID; --72, 31
 
 -- b. Alternate way using count(*) over (partition by salesorderid)
 
-select s.SalesOrderID, s.ProductID, s.OrderQty, UnitPrice
-    , count(*) over (order by salesOrderId) as totalSales -- see the difference
-    , count(*) over (partition by salesorderid order by salesOrderId) as totalSales -- see the difference
-    , sum(UnitPrice) over () as TotalUnitPrice
-    , avg(UnitPrice) over () as AvgUnitPrice
-    , min(UnitPrice) over () as MinUnitPrice
-    , max(UnitPrice) over () as MaxUnitPrice
+select s.SalesOrderID, s.ProductID,  LineTotal
+    , count(*) over (order by salesOrderId) as totalSalesOrderedBy -- see the difference
+    , count(*) over (partition by salesorderid order by salesOrderId) as totalSalesBySalesOrderID -- see the difference
+    , sum(LineTotal) over () as TotalLineTotal
+    , avg(LineTotal) over () as AvgLineTotalPrice
+    , min(LineTotal) over () as MinLineTotalPrice
+    , max(LineTotal) over () as MaxLineTotalPrice
+    , sum(LineTotal) over (partition by s.salesOrderId)/sum(LineTotal) over () as SalesOrderIDRevenueRatio
 from Sales.SalesOrderDetail s
 where SalesOrderID in (51721, 51722);
- 
 
