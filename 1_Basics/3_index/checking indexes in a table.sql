@@ -1,0 +1,1 @@
+EXECUTE sp_helpindex '[AdventureWorks2012].[Person].[Person]';
