@@ -2,6 +2,21 @@
 
 This project provides SQL scripts for practicing with the AdventureWorks2012 database. AdventureWorks2012 is a sample database provided by Microsoft, designed to showcase the features of SQL Server.
 
+## Installation
+
+DOCKER - AZURE DATA STUDIO
+
+### Command Example
+docker run -e "ACCEPT_EULA=1" -e "MSSQL_SA_PASSWORD=s10” -e "MSSQL_PID=Developer" -e "MSSQL_USER=SA" -p 1433:1433 -d --name=sql mcr.microsoft.com/azure-sql-edge
+
+
+docker cp ~/Downloads/AdventureWorks2022.bak 8bce7d4239feef07226c03959f583f179229426c0e6e761f9c26ff518180f9d1:/var/opt/mssql/data/
+
+Restore the database (Eg: AdventureWorks2022.bak):
+/var/opt/mssql/data/AdventureWorks2022.bak
+
+
+
 ## Prerequisites
 To use this project, you need to have the following:
 

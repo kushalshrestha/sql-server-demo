@@ -9,3 +9,6 @@ where left(FirstName,1) = 'A';
 select FirstName, LastName
 from [AdventureWorks2012].[Person].Person
 where SUBSTRING(FirstName,1,2)='Am';
+
+
+select * from sys.dm_db_missing_index_details;
