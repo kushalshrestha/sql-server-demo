@@ -54,3 +54,14 @@ insert into employees(name)(select random_string(10) from generate_series(0, 100
 ## Commands
 
 \d command is used to display information about database objects such as tables, views, indexes, sequences, and functions. It allows you to retrieve the structure and properties of these objects within the current database.
+
+
+```
+\d employees
+
+
+explain analyze select id from employees where id=2000;
+
+create index employees_name on employees(name);
+
+```
