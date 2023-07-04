@@ -106,3 +106,11 @@ declare @myvar1 as real = 1234567890.7891
 
 select @myvar, @myvar1; -- 1.234568E+09,	1.234568E+09
 go
+
+
+/** Converting between number types **/
+select 3/2; -- gives integer
+--how to make not an integer? add one of the number with decimal 
+select 3.0/2; -- 1.500000 gives a decimal
+select 3/2.0;
+
