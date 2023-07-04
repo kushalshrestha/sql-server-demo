@@ -54,8 +54,8 @@ SELECT @myVar;
 go
 
 /* DECIMAL AND NUMERIC*/
-DECLARE @myvar as decimal(7,2) -- or decimal(7,2) - 5 bytes needed
-SET @myvar = 123456.7
+DECLARE @myvar as decimal(7,2) -- or numeric(7,2) - 5 bytes needed
+SET @myvar = 12345.7
 SELECT @myvar AS myVariable
 GO
 -- 12345.67 is valid for the above.
