@@ -65,3 +65,27 @@ explain analyze select id from employees where id=2000;
 create index employees_name on employees(name);
 
 ```
+
+```
+create table grades (
+id serial primary key, 
+ g int,
+ name text 
+); 
+
+
+```
+
+
+
+```
+-- WORKING WITH CURSORS
+
+declare c cursor for select id from grades where g between 90 and 100;
+
+-- Now to fetch each record
+fetch c;
+
+-- to obtain last record
+fetch last c;
+```
