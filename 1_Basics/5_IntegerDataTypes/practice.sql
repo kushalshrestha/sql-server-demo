@@ -114,3 +114,12 @@ select 3/2; -- gives integer
 select 3.0/2; -- 1.500000 gives a decimal
 select 3/2.0;
 
+-- 1st way: IMPLICIT WAY
+declare @myvar as decimal(5,2) = 3;
+select @myvar/2; -- 1.500000
+
+-- 2nd way: EXPLICIT WAY
+select CONVERT(decimal(5,2), 3)/2; -- 1.500000
+select cast(3 as decimal(5,2))/2 ; -- 1.500000
+
+
