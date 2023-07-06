@@ -17,4 +17,7 @@ select TRIM(@charUnicode), LTRIM(@charUnicode), RTRIM(@charUnicode);
 GO
 ---------- REPLACE ---------
 declare @text as nvarchar(10) = 'Hello'
-select REPLACE(@text, 'l', '*')
+select REPLACE(@text, 'l', '*');
+
+------ UPPER(), LOWER() ------------
+select upper('Kushal') as myUpper, lower('Kushal') as mylower;
