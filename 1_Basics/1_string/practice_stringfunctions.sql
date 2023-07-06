@@ -56,3 +56,14 @@ SELECT CONCAT(@firstname, ' ', @lastname) as name
 
 
 GO
+
+
+------- DATA TYPE CONVERSION --------
+Select 'My number is : ' + 10; -- gives error : Conversion failed when converting the varchar value 'My number is : ' to data type int.
+-- varchar is trying to convert to int. Here int has higher precedence than varchar but implicit conversion fails
+
+-- Correct way: 
+Select 'My number is: ' + convert(varchar(20), 4567);
+Select 'My Number is: ' + cast(4567 as varchar(20));
+Select 'My salary is: '+ format(2345.6, 'C'); -- $2,345.6
+Select 'My salary is: '+ format(2345.6, 'C', 'en-US'); -- $2,345.6
