@@ -21,3 +21,38 @@ select REPLACE(@text, 'l', '*');
 
 ------ UPPER(), LOWER() ------------
 select upper('Kushal') as myUpper, lower('Kushal') as mylower;
+
+
+------- HANDLING NULLs -------
+declare @variable as int = 10000;
+select convert(decimal(5,2), @variable)
+select cast(@variable as decimal(5,2))
+select TRY_CONVERT(decimal(5,2), @variable)
+select TRY_CAST(@variable as decimal(5,2))
+go
+
+--------- Joining two strings together -------
+-- Concatenation but one of the variable value is NULL.
+DECLARE @firstname as NVARCHAR(20)
+DECLARE @middlename as NVARCHAR(20)
+DECLARE @lastname as NVARCHAR(20)
+SET @firstname = 'Kushal'
+SET @lastname = 'Shrestha'
+SELECT CONCAT(@firstname, ' ', @lastname) as name
+    , @firstname + ' ' + @lastname as name
+    
+    , @firstname + ' ' + @middlename + ' ' + @lastname as nameWithMiddleName --- Will give null. b/c NULL + (anything) results to NULL
+    -- 1st way using IIF()
+    , @firstname + ' ' + IIF(@middlename is null, '', ' '+@middleName) + ' ' + @lastname as nameWithMiddleNameUsingIIF
+    -- 2nd Way using Case
+    , @firstname + CASE 
+        WHEN @middlename is NULL THEN ''
+        ELSE ' ' + @middlename
+    END + ' ' + @lastName as nameWithMiddleNameUsingCase
+    -- 3rd way using coalesce()
+    , @firstname + ' ' + coalesce(@middlename, '') + @lastname as nameWithMiddleNameUsingCoalesce
+    -- 4th way using CONCAT()
+    , CONCAT(@firstname, ' ', @middlename, ' ', @lastname) as nameWithMiddleNameUsingConcat
+
+
+GO
