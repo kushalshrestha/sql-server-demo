@@ -10,7 +10,6 @@ CREATE TABLE tblEmployee
     DateOfBirth DATE NOT NULL
 )
 
-
 ----- ALTER TABLE -------
 ALTER TABLE [AdventureWorks2012].[dbo].[tblEmployee]
 ADD Department varchar(50);
@@ -31,4 +30,4 @@ INSERT INTO tblEmployee
 VALUES
     (133, 'Anil', 'Man', 'Shrestha', 'GID3243', '19940101', 'MED'),
     (134, 'Saugat', 'Man', 'Ligal', 'GID3221', '19900101', 'MED'),
-    (133, 'Shankar', NULL, 'Pandey', 'GID4243', '19910227', 'QA');
+    (135, 'Shankar', NULL, 'Pandey', 'GID4243', '19910227', 'QA');
