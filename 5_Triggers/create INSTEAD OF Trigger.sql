@@ -17,6 +17,8 @@ BEGIN
     where T.EmployeeNumber = @EmployeeNumber
     and T.DateOfTransaction = @DateOfTransaction
     and T.Amount = @Amount
+
+    select * from deleted;
 END
 
 begin transaction
