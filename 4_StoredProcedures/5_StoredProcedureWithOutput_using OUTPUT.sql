@@ -16,6 +16,10 @@ BEGIN
             SET @NumberOfRows = @@ROWCOUNT
         
     END
+    ELSE
+        BEGIN 
+            Set @NumberOfRows=0; -- defining explicitly. Else, we will get numberofrows = NULL
+        END
 END
 GO
 
