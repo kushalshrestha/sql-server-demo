@@ -42,6 +42,7 @@ select A.EmployeeNumber, A.AttendanceMonth, A.NumberAttendance
 from tblEmployee as E
 join tblAttendance as A
 on E.EmployeeNumber = A.EmployeeNumber
+order by A.EmployeeNumber, A.AttendanceMonth;
 
 -- 0 preceding -> 0 can be replaced by current row
 select A.EmployeeNumber, A.AttendanceMonth, A.NumberAttendance
@@ -53,6 +54,7 @@ select A.EmployeeNumber, A.AttendanceMonth, A.NumberAttendance
 from tblEmployee as E
 join tblAttendance as A
 on E.EmployeeNumber = A.EmployeeNumber
+order by A.EmployeeNumber, A.AttendanceMonth;
 
 -- we can discard current row in this way too i.e after over(....) - A.columnOfCurrentRow . see below
 select A.EmployeeNumber, A.AttendanceMonth, A.NumberAttendance
@@ -64,3 +66,4 @@ select A.EmployeeNumber, A.AttendanceMonth, A.NumberAttendance
 from tblEmployee as E
 join tblAttendance as A
 on E.EmployeeNumber = A.EmployeeNumber
+order by A.EmployeeNumber, A.AttendanceMonth;
