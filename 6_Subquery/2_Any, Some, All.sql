@@ -31,6 +31,7 @@ order by EmployeeNumber
 select *
 from tblTransaction as T
 where EmployeeNumber <> all (select EmployeeNumber from tblEmployee where EmployeeLastName like 'y%')
+and EmployeeNumber between 120 and 131
 order by EmployeeNumber
 
 
