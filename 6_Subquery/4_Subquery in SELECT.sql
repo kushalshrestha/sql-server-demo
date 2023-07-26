@@ -41,11 +41,4 @@ from tblEmployee as E
 where E.EmployeeLastName like 'y%'
 order by E.EmployeeNumber;
 
-select E.EmployeeNumber, E.EmployeeFirstName, E.EmployeeLastName, count(T.EmployeeNumber) as NumTransactions
-from tblTransaction as T
-inner join tblEmployee as E
-on E.EmployeeNumber = T.EmployeeNumber
-where E.EmployeeLastName like 'y%'
-group by E.EmployeeNumber, E.EmployeeFirstName, E.EmployeeLastName
-order by E.EmployeeNumber;
 
