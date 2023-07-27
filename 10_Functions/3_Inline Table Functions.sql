@@ -24,3 +24,10 @@ from dbo.TransactionList(123) --> this returns a table so we need to use in 'fro
 select *
 from tblEmployee
 where exists (select * from dbo.TransactionList(EmployeeNumber))
+
+-- Comparing with join
+select E.EmployeeNumber, E.EmployeeFirstName, E.EmployeeLastName, count(T.EmployeeNumber) as TransNum
+from tblEmployee as E
+join tblTransaction as T
+on E.EmployeeNumber = T.EmployeeNumber
+group by E.EmployeeNumber, E.EmployeeFirstName, E.EmployeeLastName
