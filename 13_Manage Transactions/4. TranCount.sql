@@ -11,7 +11,7 @@ IF @@TRANCOUNT > 0
     select 'greater than 0 tran'
 COMMIT TRAN OuterTransaction
 SELECT @@TRANCOUNT ,'0'
--------
+--------- HERE'S THE PERFECT EXAMPLE
 BEGIN TRY
     select @@TRANCOUNT; -- 0
     BEGIN TRANSACTION;
@@ -24,7 +24,7 @@ BEGIN TRY
     
     select @@TRANCOUNT; -- 1
     -- If all operations succeed, commit the transaction
-    ROLLBACK TRANSACTION;
+    COMMIT TRANSACTION;
     select @@TRANCOUNT; -- 0
     PRINT 'Transaction completed successfully!!!!';
     select @@TRANCOUNT; -- 0
